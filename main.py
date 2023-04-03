@@ -79,7 +79,7 @@ def send_mail():
     """
 
     message = MIMEText(html_content, "html")
-    message["Subject"] = f"Hey7! Goodmorning Henrik {today}"
+    message["Subject"] = f"Hey, Goodmorning Henrik {today}"
 
     context = ssl.create_default_context()
     with smtplib.SMTP(smtp_server, port) as server:
@@ -90,4 +90,4 @@ def send_mail():
     return message.as_string()
 
 if __name__ == "__main__":
-    print(send_mail())
+    send_mail()
