@@ -9,13 +9,14 @@ from calendar_events import get_clean_events
 from weather_getter import get_weather
 from githubgetter import githubgetterpopular
 
-def send_mail():
+#TODO add more api
+#TODO make it so it does it each morning
 
+def send_mail():
 
     calendar_events = get_clean_events()
     weather = get_weather()
     today = str(date.today())
-
 
     event_html = ""
     for event in calendar_events:
