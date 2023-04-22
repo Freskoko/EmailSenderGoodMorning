@@ -1,4 +1,4 @@
-import requests
+from requests import get
 
 def get_weather():
 
@@ -8,7 +8,7 @@ def get_weather():
 
     url = f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&hourly=temperature_2m,cloudcover,rain"
     
-    data = requests.get(url)
+    data = get(url)
     response = data.json()
 
     g = list(zip(response['hourly']["temperature_2m"],response['hourly']['time'], response['hourly']['rain']     ))

@@ -1,17 +1,17 @@
-import requests
-import os
+from requests import get
+from os import environ
 from dotenv import load_dotenv
 
 def get_calendar_events():
 
     load_dotenv()
-    key = os.environ.get("key")
+    key = environ.get("key")
 
     # end_date = "2023-04-15">
 
     url = f"https://mitt.uib.no/api/v1/calendar_events?access_token={key}" #&end_date={end_date}
 
-    data = requests.get(url)
+    data = get(url)
 
     return data.json()
 

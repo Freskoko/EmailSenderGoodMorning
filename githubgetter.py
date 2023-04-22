@@ -1,8 +1,8 @@
-import requests
+from requests import get
 
 def githubgetterpopular():
     url = 'https://api.gitterapp.com/repositories?language=python&since=daily'
-    in_info = requests.get(url).json()
+    in_info = get(url).json()
 
 
     return(in_info[0]["description"])

@@ -1,6 +1,7 @@
-import smtplib, ssl
+from smtplib import SMTP
+from ssl import create_default_context
 from dotenv import load_dotenv
-import os
+from os import environ
 from datetime import date
 from email.mime.text import MIMEText
 
@@ -29,7 +30,7 @@ def send_mail():
     smtp_server = "smtp-mail.outlook.com"
     sender_email = "goodmorningbot12345@outlook.com"  
     receiver_email = "frishcoco@gmail.com"  
-    password = os.environ.get("email_pass")
+    password = environ.get("email_pass")
 
     html_content = f"""\
 
@@ -81,13 +82,18 @@ def send_mail():
     message = MIMEText(html_content, "html")
     message["Subject"] = f"Hey, Goodmorning Henrik {today}"
 
-    context = ssl.create_default_context()
-    with smtplib.SMTP(smtp_server, port) as server:
+    context = create_default_context()
+    with SMTP(smtp_server, port) as server:
         server.starttls(context=context)
         server.login(sender_email, password)
         server.sendmail(sender_email, receiver_email, message.as_string())
 
     return message.as_string()
 
-if __name__ == "__main__":
+def main():
     send_mail()
+    return "Mail sent successfully", 200
+
+if __name__ == "__main__":
+    
+    main()

@@ -1,10 +1,10 @@
-import requests
+from requests import get
 
 
 def get_bike_info():
 
     url = "https://gbfs.urbansharing.com/bergenbysykkel.no/station_status.json"
-    bike_data = requests.get(url)
+    bike_data = get(url)
     bike_data = bike_data.json()
 
     3
