@@ -1,11 +1,11 @@
 from requests import get
-from os import environ
+import os
 from dotenv import load_dotenv
 
 def get_calendar_events():
 
     load_dotenv()
-    key = environ.get("key")
+    key = os.environ["key"]
 
     # end_date = "2023-04-15">
 

@@ -1,7 +1,7 @@
 from smtplib import SMTP
 from ssl import create_default_context
 from dotenv import load_dotenv
-from os import environ
+import os
 from datetime import date
 from email.mime.text import MIMEText
 
@@ -15,13 +15,13 @@ from githubgetter import githubgetterpopular
 
 def send_mail():
 
-    calendar_events = get_clean_events()
+    # calendar_events = get_clean_events()
     weather = get_weather()
     today = str(date.today())
 
-    event_html = ""
-    for event in calendar_events:
-        event_html += f'<li>{event["start_time"][-9:-3]} to {event["end_time"][-9:-3]} | {event["title"]}</li>'
+    # event_html = ""
+    # for event in calendar_events:
+    #     event_html += f'<li>{event["start_time"][-9:-3]} to {event["end_time"][-9:-3]} | {event["title"]}</li>'
 
 
     load_dotenv()
@@ -30,7 +30,7 @@ def send_mail():
     smtp_server = "smtp-mail.outlook.com"
     sender_email = "goodmorningbot12345@outlook.com"  
     receiver_email = "frishcoco@gmail.com"  
-    password = environ.get("email_pass")
+    password = os.environ["email_pass"]
 
     html_content = f"""\
 
@@ -56,10 +56,7 @@ def send_mail():
        
     </div>
 
-    <div>
-        <p>Todays calendar events are:</p>
-        <ul>{event_html}</ul>
-    </div>
+
     
 
     <div>
@@ -94,6 +91,9 @@ def main():
     send_mail()
     return "Mail sent successfully", 200
 
-if __name__ == "__main__":
-    
-    main()
+print(main())
+
+    # <div>
+    #     <p>Todays calendar events are:</p>
+    #     <ul>{event_html}</ul>
+    # </div>

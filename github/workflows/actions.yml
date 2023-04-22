@@ -1,0 +1,31 @@
+name: run main.py
+
+on:
+  schedule:
+    # - cron: '0 7 * * *' # At 7 every day
+    - cron: '*/3 * * * * '
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: checkout repo content
+        uses: actions/checkout@v2 # checkout the repository content to github runner
+
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11' # install the python version needed
+          
+      - name: install python packages
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          
+      - name: execute py script # run main.py
+        env:
+          email_pass: ${{ secrets.email_pass }}
+          key: ${{ secrets.canvas_key }}
+        run: python main.py
+          
