@@ -30,7 +30,7 @@ def send_mail():
     smtp_server = "smtp-mail.outlook.com"
     sender_email = "goodmorningbot12345@outlook.com"  
     receiver_email = "frishcoco@gmail.com"  
-    password = os.environ["email_pass"]
+    password = os.environ["EMAIL_PASS"]
 
     html_content = f"""\
 
