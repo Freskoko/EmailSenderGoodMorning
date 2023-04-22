@@ -1,6 +1,6 @@
 from smtplib import SMTP
 from ssl import create_default_context
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 import os
 from datetime import date
 from email.mime.text import MIMEText
@@ -24,7 +24,7 @@ def send_mail():
     #     event_html += f'<li>{event["start_time"][-9:-3]} to {event["end_time"][-9:-3]} | {event["title"]}</li>'
 
 
-    load_dotenv()
+    # load_dotenv()
 
     port = 587  
     smtp_server = "smtp-mail.outlook.com"
