@@ -26,6 +26,6 @@ jobs:
       - name: execute py script # run main.py
         env:
           email_pass: ${{ secrets.email_pass }}
-          key: ${{ secrets.canvas_key }}
+          key: ${{ secrets.key }}
         run: python main.py
           
