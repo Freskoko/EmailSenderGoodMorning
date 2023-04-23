@@ -20,8 +20,12 @@ def send_mail():
     today = str(date.today())
 
     event_html = ""
-    for event in calendar_events:
-        event_html += f'<li>{event["start_time"][-9:-3]} to {event["end_time"][-9:-3]} | {event["title"]}</li>'
+    if not calendar_events:
+        event_html += "<li> Empty today :) <li>"
+
+    else:
+        for event in calendar_events:
+            event_html += f'<li>{event["start_time"][-9:-3]} to {event["end_time"][-9:-3]} | {event["title"]}</li>'
 
 
     # load_dotenv()
