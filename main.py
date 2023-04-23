@@ -27,7 +27,8 @@ def send_mail():
     # load_dotenv()
 
     port = 587  
-    smtp_server = "smtp-mail.outlook.com"
+    # smtp_server = "smtp-mail.outlook.com"
+    smtp_server = "smtp.office365.com"
     sender_email = "goodmorningbot12345@outlook.com"  
     receiver_email = "frishcoco@gmail.com"  
     password = os.environ["email_pass"]
