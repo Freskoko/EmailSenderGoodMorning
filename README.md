@@ -9,7 +9,7 @@ The data sent comes from
 - weather api
 - github trending repos
 
-# How do i setup my own?
+# How can i use this?
 
 Clone the repo
 
