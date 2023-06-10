@@ -6,3 +6,7 @@ def githubgetterpopular():
 
 
     return(in_info[0]["description"])
+
+
+if __name__ == "__main__":
+    print(githubgetterpopular())

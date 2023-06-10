@@ -18,16 +18,21 @@ def get_calendar_events():
 def clean_dict(in_dict):
     outlist = []
 
-    for event in in_dict:
-        outdict = {}
+    try:
 
-        outdict["title"] = event["title"]
-        outdict["start_time"] = event['start_at']
-        outdict["end_time"] = event['end_at']
+        for event in in_dict:
+            outdict = {}
 
-        outlist.append(outdict)
+            outdict["title"] = event["title"]
+            outdict["start_time"] = event['start_at']
+            outdict["end_time"] = event['end_at']
 
-    return outlist
+            outlist.append(outdict)
+
+        return outlist
+    
+    except Exception as e:
+        return {"Sorry":"No events today"}
 
 def get_clean_events():
     return clean_dict( get_calendar_events() )
