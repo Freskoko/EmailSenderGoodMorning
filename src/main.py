@@ -1,17 +1,17 @@
-from smtplib import SMTP
-from ssl import create_default_context
-# from dotenv import load_dotenv
 import os
 from datetime import date
 from email.mime.text import MIMEText
+from smtplib import SMTP
+from ssl import create_default_context
 
-from bike_ava import get_bike_info
-from calendar_events import get_clean_events
-from weather_getter import get_weather
-from githubgetter import githubgetterpopular
+from utils.bike_ava import get_bike_info
+from utils.calendar_events import get_clean_events
+from utils.githubgetter import githubgetterpopular
+from utils.weather_getter import get_weather
 
-#TODO add more api
-#TODO make it so it does it each morning
+# TODO add more api
+# TODO make it so it does it each morning
+
 
 def send_mail():
 
@@ -27,14 +27,13 @@ def send_mail():
         for event in calendar_events:
             event_html += f'<li>{event["start_time"][-9:-3]} to {event["end_time"][-9:-3]} | {event["title"]}</li>'
 
-
     # load_dotenv()
 
-    port = 587  
+    port = 587
     # smtp_server = "smtp-mail.outlook.com"
     smtp_server = "smtp.office365.com"
-    sender_email = "goodmorningbot12345@outlook.com"  
-    receiver_email = "frishcoco@gmail.com"  
+    sender_email = "goodmorningbot12345@outlook.com"
+    receiver_email = "frishcoco@gmail.com"
     password = os.environ["email_pass"]
 
     html_content = f"""\
@@ -94,8 +93,10 @@ def send_mail():
 
     return message.as_string()
 
+
 def main():
     send_mail()
     return "Mail sent successfully", 200
+
 
 print(main())

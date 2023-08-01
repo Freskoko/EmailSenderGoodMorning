@@ -7,7 +7,6 @@ def get_bike_info():
     bike_data = get(url)
     bike_data = bike_data.json()
 
-    
     greighallen_av = bike_data["data"]["stations"]
 
     for station in greighallen_av:
@@ -15,8 +14,8 @@ def get_bike_info():
         if station["station_id"] == "3":
             return station["num_bikes_available"]
 
-
     return greighallen_av
+
 
 if __name__ == "__main__":
     print(get_bike_info())
