@@ -1,17 +1,18 @@
 # EmailSenderGoodMorning
 
-This is a program to send an Email to my email each morning.
+This is a python script that uses github actions to send an Email to me each morning!
 
 # API/Data used
 
 The data sent comes from 
-- my calender (mittUiB) Canva
-- weather api
-- github trending repos
+
+- weather API
+- github trending repos API
+- My university's calender (mittUiB) Canva API
 
 # How can i use this?
 
 Clone the repo
 
 go to github actions, enter your own "canva-key" and "email-password"
-you may need to change the email username in the code aswell.
+Change the email username in main -> send_mail()

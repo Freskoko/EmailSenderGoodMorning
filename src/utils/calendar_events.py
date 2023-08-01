@@ -1,5 +1,4 @@
 import os
-
 from requests import get
 
 # from dotenv import load_dotenv
@@ -9,8 +8,6 @@ def get_calendar_events():
 
     # load_dotenv()
     key = os.environ["key"]
-
-    # end_date = "2023-04-15">
 
     url = f"https://mitt.uib.no/api/v1/calendar_events?access_token={key}"  # &end_date={end_date}
 
