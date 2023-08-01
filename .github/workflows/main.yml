@@ -27,5 +27,5 @@ jobs:
         env:
           email_pass: ${{ secrets.email_pass }}
           key: ${{ secrets.key }}
-        run: python main.py
+        run: python src/main.py
           
